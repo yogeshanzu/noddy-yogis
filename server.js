@@ -54,7 +54,31 @@ app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1');
 
   })
 
- 
+ app.get('/meteorservicepara', function (req, res) {
+  	//var useridmeteor=req.query.useridmeteor;
+  	
+  	 var feedDataObj = {}; // input object for get kloojj feeds
+      feedDataObj.userId = req.query.useridmeteor;
+      feedDataObj.limit = 15;
+      feedDataObj.offset = 0;
+  	  console.log("i m in check feedDataObj : "+feedDataObj.userId);
+      ddpclient.call(
+       "getKloojjFeed",             // name of Meteor Method being called
+         [feedDataObj],            // parameters to send to Meteor Method
+        function (err, result) {   // callback which returns the method call results
+         // console.log("called function, result: " + result);
+  		//console.log(JSON.stringify(result));
+  		
+  		console.log(JSON.stringify(result, null, 4));
+  		//For Plain Text
+  	    //res.end( JSON.stringify(result) );
+  		//For Formatted text 
+  	 res.end( JSON.stringify(result, null, 4));
+  		 	
+        }
+      );
+
+  })
  
 server.listen(server_port, server_ip_address, function () {
   console.log( "Listening on " + server_ip_address + ", server_port " + server_port )
