@@ -23,9 +23,9 @@ app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1');
     autoReconnect : true,
     autoReconnectTimer : 500,
     maintainCollections : true,
-    url: 'ws://test.kloojj.com/backend/websocket'
+    url: 'wss://demo.kloojj.com/backend/websocket'
   });
-
+//url: 'ws://test.kloojj.com/backend/websocket'
   ddpclient.connect(function(err,wasReconnect) {
       //connection.subscribe('some_name');
   	
