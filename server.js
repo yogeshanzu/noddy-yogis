@@ -63,7 +63,7 @@ app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1');
       feedDataObj.offset = 0;
   	  console.log("i m in check feedDataObj : "+feedDataObj.userId);
       ddpclient.call(
-       "getKloojjFeedEs",             // name of Meteor Method being called
+       "getKloojjFeedEs",             // name of Meteor Method being called getKloojjFeed
          [feedDataObj],            // parameters to send to Meteor Method
         function (err, result) {   // callback which returns the method call results
          // console.log("called function, result: " + result);
